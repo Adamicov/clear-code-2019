@@ -46,13 +46,3 @@ def calculate(usb_size, memes):
     return (max_memes_value, best_memes_set)
 
 
-usb_size = 1
-memes = [
-    ('rollsafe.jpg', 205, 6),
-    ('sad_pepe_compilation.gif', 410, 10),
-    ('yodeling_kid.avi', 605, 12),
-    ('liwozik', 1024, 21),
-]
-
-
-print(calculate(usb_size, memes))
