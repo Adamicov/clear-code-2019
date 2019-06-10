@@ -1,25 +1,6 @@
 GB_MB_FACTOR = 1024
 
 
-def retrieve_best_memes(max_weight, rows_number, calculation_table, max_memes_value, memes):
-    
-    current_value = max_memes_value
-    current_weight = max_weight
-    best_memes_set = set()
-    
-    for i in range(rows_number, 0, -1):
-
-        row_up = i - 1
-
-        if current_value != calculation_table[row_up][current_weight]:
-            name, weight, value = memes[row_up]
-            best_memes_set.add(name)
-            current_value -= value
-            current_weight -= weight
-
-    return best_memes_set
-
-
 def calculate(usb_size, memes):
 
     max_weight = usb_size * GB_MB_FACTOR
@@ -54,3 +35,22 @@ def calculate(usb_size, memes):
         max_weight, rows_number, calculation_table, max_memes_value, memes)
 
     return (max_memes_value, best_memes_set)
+
+
+def retrieve_best_memes(max_weight, rows_number, calculation_table, max_memes_value, memes):
+
+    current_value = max_memes_value
+    current_weight = max_weight
+    best_memes_set = set()
+
+    for i in range(rows_number, 0, -1):
+
+        row_up = i - 1
+
+        if current_value != calculation_table[row_up][current_weight]:
+            name, weight, value = memes[row_up]
+            best_memes_set.add(name)
+            current_value -= value
+            current_weight -= weight
+
+    return best_memes_set
